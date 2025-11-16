@@ -174,7 +174,23 @@ if (temperaturaActual < 10) {
 
 ## 8.3 Sentencia `if-else if-else`: Múltiples Caminos
 
-Cuando hay **más de dos posibilidades**, usamos `else if`.
+JavaScript evalúa las condiciones en orden, desde el `if` hacia abajo.  
+- Tan pronto como encuentra una condición (`if` o `else if`) que es `true`, ejecuta su bloque de código correspondiente y **salta el resto** de la estructura `else if` - `else`.  
+- Si ninguna condición del `if` o de los `else if` es `true`, se ejecuta el bloque del `else` (si existe).
+
+```js
+if (condición1) {
+  // Se ejecuta si condición1 es true
+} else if (condición2) {
+  // Se ejecuta si condición1 es false y condición2 es true
+} else if (condición3) {
+  // Se ejecuta si las anteriores son false y condición3 es true
+} else {
+  // Se ejecuta si todas las condiciones anteriores son false
+}
+```
+
+> **Nota:** JavaScript **no tiene** `elif`. Usa `else if` en su lugar.
 
 ### Sintaxis:
 ```javascript
@@ -359,7 +375,9 @@ if (edad >= 15 && carnet === "si") {
 
 ## 8.5 Condicionales Anidados: Decisiones Dentro de Decisiones
 
-Un `if` dentro de otro `if`.
+Un condicional anidado ocurre cuando colocas una estructura ```if``` (o ```if-else```, ```if-else if-else```) dentro de otro bloque ```if```, ```else if``` o ```else```. Esto permite tomar decisiones más detalladas basadas en el resultado de una condición previa.
+
+**Sintaxis (Ejemplo):**
 
 ```javascript
 if (condicionExterior) {
@@ -430,6 +448,13 @@ if (numero > 0) {
 
 ### Reto 8.1: Juego de Adivinanza
 
+1. Define un número secreto (ej: ```numero_secreto = 7```).
+2. Pide al usuario que intente adivinar el número.
+3. Usa ```if-elif-else``` para decirle al usuario:
+  - Si adivinó el número ("¡Felicidades! Adivinaste.").
+  - Si el número que ingresó es mayor que el secreto ("Muy alto, intenta de nuevo.").
+  - Si el número que ingresó es menor que el secreto ("Muy bajo, intenta de nuevo.").
+
 ```javascript
 console.log("¡Bienvenido al juego de adivinanza!\n");
 const numeroSecreto = 7;
@@ -447,6 +472,20 @@ if (numeroUsuario === numeroSecreto) {
 ---
 
 ### Reto 8.2: Mini Calculadora
+
+1. Muestra un menú de operaciones:
+  - 1. Sumar
+  - 2. Restar
+  - 3. Multiplicar
+  - 4. Dividir
+
+2. Pide al usuario que elija una opción (_1-4_).
+3. Pide al usuario dos números.
+4. Usando ```if-elif-else``` según la opción elegida:
+  - Realiza la operación correspondiente.
+  - Muestra el resultado.
+  - **Importante para la división:** Si el usuario elige dividir y el segundo número es cero, debes mostrar un mensaje de error como "No se puede dividir por cero" en lugar de intentar la operación (esto requerirá un if anidado dentro de la opción de división).
+  - Si la opción no es válida (no es 1, 2, 3, o 4), muestra "Opción no válida."
 
 ```javascript
 console.log("...MINI CALCULADORA...");
